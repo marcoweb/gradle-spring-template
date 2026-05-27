@@ -1,5 +1,8 @@
 FROM mcr.microsoft.com/devcontainers/java:1-21-bullseye
 
+RUN rm -f /etc/apt/sources.list.d/yarn.list \
+    && sed -i '/yarnpkg/d' /etc/apt/sources.list || true
+
 ARG INSTALL_MAVEN="false"
 ARG MAVEN_VERSION=""
 
